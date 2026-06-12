@@ -36,6 +36,8 @@ Este documento resume la estructura, tecnología y convenciones del proyecto par
 │   ├── 3.jpeg
 │   ├── 4.jpeg
 │   └── 5.jpeg
+├── MUSICA/          # Música instrumental de fondo
+│   └── fondo.mp3    # Pista descargada de Unminus (CC0)
 ├── README.md        # Documentación orientada a humanos
 ├── LICENSE          # Apache 2.0
 ├── .gitattributes   # Normalización de finales de línea: * text=auto
@@ -58,7 +60,7 @@ Este documento resume la estructura, tecnología y convenciones del proyecto par
   8. Confirmación por WhatsApp.
   9. Compartir fotos en Google Drive.
   10. Footer.
-- Botones flotantes fijos: volver arriba, mapa y WhatsApp.
+- Botones flotantes fijos: volver arriba, mapa, WhatsApp, subir fotos a Drive y play/pause de música.
 - Animaciones: partículas doradas, aparición al hacer scroll (`IntersectionObserver`), flotación del marco central y transiciones CSS.
 
 ## Comandos de build y ejecución
@@ -85,7 +87,9 @@ No hay comandos de build. Para probar o visualizar:
 - **Idioma:** Todo el contenido visible está en español. Mantener el español para cualquier texto nuevo.
 - **CSS:** Escrito en un único bloque `<style>` dentro de `<head>`. Usa variables CSS en `:root` para la paleta de colores dorados y beige. Respetar esa paleta para mantener la coherencia visual.
 - **JavaScript:** Escrito en un único bloque `<script>` antes de cerrar `</body>`. No usa módulos ES ni frameworks.
-- **Imágenes:** Se referencian con rutas relativas como `FOTOS/4.jpeg?v=1`. El parámetro `?v=...` fuerza a los navegadores y dispositivos a descargar la imagen actualizada cuando cambie. Si se reemplaza o agrega una foto, actualizar la ruta correspondiente en `index.html` y, de ser necesario, el `<meta property="og:image">`.
+- **Imágenes:** Se referencian con rutas relativas como `FOTOS/4.jpeg`. Al cargar la página, JavaScript les agrega automáticamente el parámetro `?v=CACHE_VERSION`.
+- **Música de fondo:** Se reproduce automáticamente al abrir la invitación (tras la interacción del usuario) mediante el elemento `<audio id="musica-fondo" loop>`. El volumen está fijado a 0.25 y se incluye un botón flotante para pausar/reanudar. La pista actual es "Autumn Allure" de Wowa, obtenida de Unminus bajo licencia CC0 (dominio público). Se referencia como `MUSICA/fondo.mp3` y JavaScript le agrega `?v=CACHE_VERSION` al cargar.
+- **Versionado de recursos:** La constante `CACHE_VERSION` en el bloque `<script>` de `index.html` controla la versión de caché de imágenes y audio. Cuando se reemplace cualquier foto o el audio, incrementar `CACHE_VERSION` (por ejemplo, `'1'` → `'2'`). El `<meta property="og:image">` debe actualizarse manualmente al mismo número porque los crawlers de WhatsApp/Facebook no ejecutan JavaScript.
 - **Fecha objetivo de la cuenta regresiva:**
   ```javascript
   const fechaEvento = new Date('2026-06-20T10:00:00-05:00').getTime();
@@ -103,6 +107,7 @@ No hay comandos de build. Para probar o visualizar:
   4. Verificar que la cuenta regresiva disminuye cada segundo.
   5. Comprobar que los enlaces de WhatsApp, Maps y Drive abran la URL correcta.
   6. Asegurar que las imágenes de `FOTOS/` carguen sin errores 404.
+  7. Confirmar que la música inicia al hacer clic en "Abrir invitación" y que el botón flotante la pausa/reanuda.
 
 ## Consideraciones de seguridad
 
@@ -125,7 +130,7 @@ No hay comandos de build. Para probar o visualizar:
 - **Hora:** 10:00 AM (UTC-5)
 - **Ceremonia:** Iglesia (enlace a Google Maps en `index.html`)
 - **Recepción:** En casa
-- **Confirmaciones:** WhatsApp +593 98 966 4303
+- **Confirmaciones:** WhatsApp +593 98 966 4303 (hasta el jueves 18 de junio de 2026)
 - **Compartir fotos:** Carpeta de Google Drive enlazada en la página
 
 ---
