@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primera Comunión — Emely Rafaela Hurtado Barahona</title>
+  <meta name="description" content="Te invitamos a celebrar la Primera Comunión de Emely Rafaela Hurtado Barahona. Sábado 20 de junio, 10:00 AM." />
+  <meta property="og:title" content="Primera Comunión — Emely Rafaela Hurtado Barahona" />
+  <meta property="og:description" content="Acompáñanos en este día tan especial. Sábado 20 de junio, 10:00 AM." />
+  <meta property="og:image" content="FOTOS/4.jpeg" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blanco: #fffdf9;
+      --crema: #fff8ef;
+      --beige: #f5efe6;
+      --dorado: #d4af37;
+      --dorado-claro: #e8c96b;
+      --dorado-oscuro: #b8860b;
+      --texto: #3a3228;
+      --texto-claro: #6b5e4f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Overlay de bienvenida */
+    #bienvenida {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, #fff8ef 0%, #f5efe6 50%, #fffdf9 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #bienvenida.oculta {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #bienvenida .marco-central {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 4px double var(--dorado);
+      padding: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(184, 134, 11, 0.2);
+      animation: flotar 4s ease-in-out infinite;
+    }
+
+    #bienvenida .marco-central img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    #bienvenida h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      color: var(--dorado-oscuro);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+
+    #bienvenida p.subtitulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: var(--texto-claro);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .btn-abrir {
+      background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-oscuro) 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-abrir:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(184, 134, 11, 0.45);
+    }
+
+    .btn-abrir::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(30deg) translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .btn-abrir:hover::after {
+      transform: rotate(30deg) translateX(100%);
+    }
+
+    /* Partículas doradas */
+    .particulas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+    }
+
+    .particula {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--dorado-claro);
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: caer linear infinite;
+    }
+
+    @keyframes caer {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Navegación */
+    .nav-flotante {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-fab {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-fab:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-wa { background: #25D366; }
+    .btn-map { background: var(--dorado-oscuro); }
+    .btn-top { background: var(--texto); }
+
+    /* Header / Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      background: radial-gradient(ellipse at top, #fffdf9 0%, #f5efe6 60%, #efe6d5 100%);
+      position: relative;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(184, 134, 11, 0.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero::after {
+      bottom: -120px;
+      left: -120px;
+      width: 380px;
+      height: 380px;
+    }
+
+    .hero-foto {
+      width: min(280px, 70vw);
+      height: min(280px, 70vw);
+      border-radius: 50%;
+      border: 5px solid var(--dorado);
+      padding: 8px;
+      background: white;
+      box-shadow: 0 15px 50px rgba(184, 134, 11, 0.25);
+      margin-bottom: 2rem;
+      position: relative;
+      animation: fadeInUp 1s ease both;
+    }
+
+    .hero-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .hero h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.8rem, 10vw, 5.5rem);
+      color: var(--dorado-oscuro);
+      line-height: 1;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero .etiqueta {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--texto-claro);
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .hero .frase {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: var(--texto-claro);
+      max-width: 600px;
+      animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .scroll-indicador {
+      margin-top: 2.5rem;
+      animation: bounce 2s infinite, fadeIn 1s ease 1s both;
+    }
+
+    .scroll-indicador svg {
+      stroke: var(--dorado-oscuro);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(40px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .aparecer {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .aparecer.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Secciones generales */
+    section {
+      padding: 5rem 1.5rem;
+      position: relative;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .titulo-seccion {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      color: var(--dorado-oscuro);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .subrayado {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+      margin: 0 auto 2.5rem;
+    }
+
+    .texto-centrado {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: var(--texto-claro);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Mensaje */
+    .mensaje {
+      background: var(--blanco);
+    }
+
+    .mensaje .contenedor {
+      border-left: 3px solid var(--dorado);
+      border-right: 3px solid var(--dorado);
+      padding: 0 2rem;
+    }
+
+    /* Cuenta regresiva */
+    .cuenta-regresiva {
+      background: linear-gradient(135deg, #fff8ef 0%, #f5efe6 100%);
+    }
+
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contador-item {
+      background: white;
+      border: 1px solid rgba(184, 134, 11, 0.25);
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      min-width: 90px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(184, 134, 11, 0.1);
+    }
+
+    .contador-item .numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 700;
+      color: var(--dorado-oscuro);
+      line-height: 1;
+    }
+
+    .contador-item .etiqueta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--texto-claro);
+      margin-top: 0.5rem;
+    }
+
+    /* Galería */
+    .galeria {
+      background: var(--blanco);
+    }
+
+    .grid-fotos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .foto-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      aspect-ratio: 3/4;
+      border: 3px solid white;
+      outline: 1px solid rgba(184, 134, 11, 0.2);
+    }
+
+    .foto-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .foto-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .foto-panorama {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+
+    /* Detalles */
+    .detalles {
+      background: linear-gradient(135deg, #fffdf9 0%, #f5efe6 100%);
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .tarjeta {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(184, 134, 11, 0.12);
+      border: 1px solid rgba(184, 134, 11, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tarjeta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+    }
+
+    .tarjeta .icono {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.2rem;
+      background: linear-gradient(135deg, var(--dorado-claro) 0%, var(--dorado) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tarjeta .icono svg {
+      width: 36px;
+      height: 36px;
+      stroke: white;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .tarjeta h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--dorado-oscuro);
+      margin-bottom: 0.8rem;
+    }
+
+    .tarjeta p {
+      color: var(--texto-claro);
+      margin-bottom: 0.4rem;
+      font-size: 0.98rem;
+    }
+
+    .tarjeta .dato-destacado {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin: 0.8rem 0;
+    }
+
+    .btn-accion {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-oscuro) 100%);
+      color: white;
+      text-decoration: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-top: 1rem;
+      box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-accion:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(184, 134, 11, 0.4);
+    }
+
+    /* Itinerario */
+    .itinerario {
+      background: var(--blanco);
+    }
+
+    .linea-tiempo {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .linea-tiempo::before {
+      content: '';
+      position: absolute;
+      left: 34px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--dorado-claro), var(--dorado-oscuro), var(--dorado-claro));
+    }
+
+    .evento {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .evento-icono {
+      width: 70px;
+      height: 70px;
+      min-width: 70px;
+      background: white;
+      border: 2px solid var(--dorado);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .evento-icono svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--dorado-oscuro);
+      fill: none;
+      stroke-width: 1.7;
+    }
+
+    .evento-info {
+      background: var(--crema);
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      flex: 1;
+      border: 1px solid rgba(184, 134, 11, 0.15);
+    }
+
+    .evento-info h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--dorado-oscuro);
+      margin-bottom: 0.3rem;
+    }
+
+    .evento-info .hora {
+      font-weight: 600;
+      color: var(--texto);
+      margin-bottom: 0.3rem;
+    }
+
+    .evento-info p {
+      color: var(--texto-claro);
+      font-size: 0.95rem;
+    }
+
+    /* Confirmación */
+    .confirmacion {
+      background: linear-gradient(135deg, #fffdf9 0%, #f5efe6 100%);
+      text-align: center;
+    }
+
+    .confirmacion .texto-centrado {
+      margin-bottom: 2rem;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+    }
+
+    .btn-whatsapp svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .compartir-fotos {
+      background: var(--blanco);
+    }
+
+    .confirmacion .contenedor,
+    .compartir-fotos .contenedor {
+      text-align: center;
+    }
+
+    .btn-drive {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: linear-gradient(135deg, #1a73e8 0%, #34a853 50%, #fbbc04 100%);
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 8px 25px rgba(26, 115, 232, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-drive:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(26, 115, 232, 0.4);
+    }
+
+    .btn-drive svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--texto);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    footer p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .firma {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      color: var(--dorado-claro);
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tarjeta.ancha {
+        grid-column: span 2;
+      }
+
+      .grid-fotos {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .foto-panorama {
+        grid-column: span 4;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contador-item {
+        min-width: 70px;
+        padding: 1.2rem 0.7rem;
+      }
+
+      .contador-item .numero {
+        font-size: 1.8rem;
+      }
+
+      .evento {
+        gap: 1rem;
+      }
+
+      .evento-icono {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+      }
+
+      .linea-tiempo::before {
+        left: 29px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay de bienvenida -->
+  <div id="bienvenida">
+    <div class="marco-central">
+      <img src="FOTOS/4.jpeg" alt="Emely Rafaela" />
+    </div>
+    <h1>Emely Rafaela</h1>
+    <p class="subtitulo">Mi Primera Comunión</p>
+    <button class="btn-abrir" onclick="abrirInvitacion()">Abrir invitación</button>
+  </div>
+
+  <!-- Partículas doradas -->
+  <div class="particulas" id="particulas"></div>
+
+  <!-- Botones flotantes -->
+  <div class="nav-flotante">
+    <a href="#inicio" class="btn-fab btn-top" aria-label="Volver arriba">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </a>
+    <a href="https://maps.app.goo.gl/Zs97oX5iaxL6gcPk9" target="_blank" class="btn-fab btn-map" aria-label="Ver ubicación">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </a>
+    <a href="https://wa.me/593989664303?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20Primera%20Comuni%C3%B3n%20de%20Emely%20Rafaela.%20%F0%9F%99%8F" target="_blank" class="btn-fab btn-wa" aria-label="Confirmar por WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-foto">
+      <img src="FOTOS/4.jpeg" alt="Emely Rafaela Hurtado Barahona" />
+    </div>
+    <p class="etiqueta">Primera Comunión</p>
+    <h2>Emely Rafaela<br>Hurtado Barahona</h2>
+    <p class="frase">«Reciban el Espíritu Santo. A quienes les perdonéis los pecados, les quedan perdonados.»</p>
+    <div class="scroll-indicador">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+    </div>
+  </section>
+
+  <!-- Mensaje de bienvenida -->
+  <section class="mensaje">
+    <div class="contenedor aparecer">
+      <h2 class="titulo-seccion">Bienvenidos</h2>
+      <div class="subrayado"></div>
+      <p class="texto-centrado">
+        Con la bendición de Dios y el amor de nuestra familia, queremos compartir contigo
+        un momento muy especial en la vida de nuestra hija <strong>Emely Rafaela</strong>.<br><br>
+        Será un honor contar con tu presencia cuando reciba por primera vez
+        el cuerpo y la sangre de Cristo. ¡Acompáñanos a celebrar su Primera Comunión!
+      </p>
+    </div>
+  </section>
+
+  <!-- Cuenta regresiva -->
+  <section class="cuenta-regresiva">
+    <div class="contenedor aparecer">
+      <h2 class="titulo-seccion">Faltan</h2>
+      <div class="subrayado"></div>
+      <div class="contador" id="contador">
+        <div class="contador-item"><div class="numero" id="dias">00</div><div class="etiqueta">Días</div></div>
+        <div class="contador-item"><div class="numero" id="horas">00</div><div class="etiqueta">Horas</div></div>
+        <div class="contador-item"><div class="numero" id="minutos">00</div><div class="etiqueta">Min.</div></div>
+        <div class="contador-item"><div class="numero" id="segundos">00</div><div class="etiqueta">Seg.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="galeria">
+    <div class="contenedor aparecer">
+      <h2 class="titulo-seccion">Momentos especiales</h2>
+      <div class="subrayado"></div>
+      <div class="grid-fotos">
+        <div class="foto-item foto-panorama">
+          <img src="FOTOS/5.jpeg" alt="Emely y familia" />
+        </div>
+        <div class="foto-item">
+          <img src="FOTOS/4.jpeg" alt="Emely Rafaela" />
+        </div>
+        <div class="foto-item">
+          <img src="FOTOS/2.jpeg" alt="Emely Rafaela" />
+        </div>
+        <div class="foto-item">
+          <img src="FOTOS/1.jpeg" alt="Emely Rafaela" />
+        </div>
+        <div class="foto-item">
+          <img src="FOTOS/3.jpeg" alt="Emely Rafaela" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detalles del evento -->
+  <section class="detalles">
+    <div class="contenedor aparecer">
+      <h2 class="titulo-seccion">Detalles del evento</h2>
+      <div class="subrayado"></div>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <div class="icono">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Fecha</h3>
+          <p class="dato-destacado">Sábado 20 de junio</p>
+          <p>2026</p>
+        </div>
+        <div class="tarjeta">
+          <div class="icono">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Hora</h3>
+          <p class="dato-destacado">10:00 AM</p>
+          <p>de la mañana</p>
+        </div>
+        <div class="tarjeta ancha">
+          <div class="icono">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Ceremonia</h3>
+          <p class="dato-destacado">Iglesia</p>
+          <p>Te esperamos para celebrar juntos este sacramento tan importante.</p>
+          <a href="https://maps.app.goo.gl/Zs97oX5iaxL6gcPk9" target="_blank" class="btn-accion">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ver ubicación en Maps
+          </a>
+        </div>
+        <div class="tarjeta ancha">
+          <div class="icono">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Recepción</h3>
+          <p class="dato-destacado">En casa</p>
+          <p>Después de la ceremonia, nos reuniremos en nuestra casa para compartir un grato momento en familia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Itinerario -->
+  <section class="itinerario">
+    <div class="contenedor aparecer">
+      <h2 class="titulo-seccion">Itinerario</h2>
+      <div class="subrayado"></div>
+      <div class="linea-tiempo">
+        <div class="evento">
+          <div class="evento-icono">
+            <svg viewBox="0 0 24 24"><path d="M2 12h20M2 12l5-5m-5 5l5 5"/><path d="M12 2v20"/></svg>
+          </div>
+          <div class="evento-info">
+            <h4>Llegada e introducción</h4>
+            <p class="hora">09:30 AM</p>
+            <p>Te sugerimos llegar con 30 minutos de anticipación.</p>
+          </div>
+        </div>
+        <div class="evento">
+          <div class="evento-icono">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="evento-info">
+            <h4>Ceremonia de Primera Comunión</h4>
+            <p class="hora">10:00 AM</p>
+            <p>Momento central: Emely recibe la Eucaristía por primera vez.</p>
+          </div>
+        </div>
+        <div class="evento">
+          <div class="evento-icono">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="evento-info">
+            <h4>Recepción en casa</h4>
+            <p class="hora">Después de la misa</p>
+            <p>Compartiremos momentos de alegría en familia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmación -->
+  <section class="confirmacion">
+    <div class="contenedor aparecer">
+      <h2 class="titulo-seccion">Confirma tu asistencia</h2>
+      <div class="subrayado"></div>
+      <p class="texto-centrado">
+        Tu presencia es el mejor regalo que podemos recibir.<br>
+        Por favor, confírmanos si nos acompañarás en este día tan especial.
+      </p>
+      <a href="https://wa.me/593989664303?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20Primera%20Comuni%C3%B3n%20de%20Emely%20Rafaela.%20%F0%9F%99%8F" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Confirmar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Compartir fotos -->
+  <section class="compartir-fotos">
+    <div class="contenedor aparecer">
+      <h2 class="titulo-seccion">Comparte tus fotos</h2>
+      <div class="subrayado"></div>
+      <p class="texto-centrado">
+        Durante la fiesta saca muchas fotos y súbelas a nuestra carpeta de Google Drive.<br>
+        Así todos podremos revivir juntos los mejores momentos de este día especial.
+      </p>
+      <a href="https://drive.google.com/drive/folders/1gC1x7zwGtFGlxlBGhCcWDwqE3Xm3bQV5?usp=sharing" target="_blank" class="btn-drive">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.02 2.03 6.1 12.29h11.8l5.92-10.26H12.02zM2 14.26l3.92 6.79 5.92-10.26H2zm10 10.71h11.84L24 14.26H12.08l-3.92 6.79 3.84 6.92z"/></svg>
+        Subir fotos a Drive
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Con amor,</p>
+    <p class="firma">Jeniffer Barahona</p>
+    <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.7;"></p>
+  </footer>
+
+  <script>
+    // Abrir invitación
+    function abrirInvitacion() {
+      document.getElementById('bienvenida').classList.add('oculta');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Cuenta regresiva: 20 de junio de 2026 a las 10:00 AM (hora Ecuador = UTC-5)
+    const fechaEvento = new Date('2026-06-20T10:00:00-05:00').getTime();
+
+    function actualizarContador() {
+      const ahora = new Date().getTime();
+      const diferencia = fechaEvento - ahora;
+
+      if (diferencia <= 0) {
+        document.getElementById('dias').textContent = '00';
+        document.getElementById('horas').textContent = '00';
+        document.getElementById('minutos').textContent = '00';
+        document.getElementById('segundos').textContent = '00';
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      document.getElementById('dias').textContent = dias.toString().padStart(2, '0');
+      document.getElementById('horas').textContent = horas.toString().padStart(2, '0');
+      document.getElementById('minutos').textContent = minutos.toString().padStart(2, '0');
+      document.getElementById('segundos').textContent = segundos.toString().padStart(2, '0');
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+
+    // Animaciones al hacer scroll
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.aparecer').forEach(el => observador.observe(el));
+
+    // Partículas doradas
+    const contenedorParticulas = document.getElementById('particulas');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particula');
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDuration = (Math.random() * 8 + 6) + 's';
+      p.style.animationDelay = (Math.random() * 10) + 's';
+      p.style.width = (Math.random() * 6 + 3) + 'px';
+      p.style.height = p.style.width;
+      contenedorParticulas.appendChild(p);
+    }
+
+    // Ocultar botón "volver arriba" si estamos arriba
+    const btnTop = document.querySelector('.btn-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnTop.style.opacity = '1';
+        btnTop.style.pointerEvents = 'auto';
+      } else {
+        btnTop.style.opacity = '0';
+        btnTop.style.pointerEvents = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
