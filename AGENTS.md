@@ -121,7 +121,7 @@ No hay comandos de build. Para probar o visualizar:
 1. Asegurarse de que `index.html` esté en la raíz del sitio publicado.
 2. Incluir la carpeta `FOTOS/` con las imágenes en la misma ruta relativa (`FOTOS/`).
 3. Opcional: configurar el dominio personalizado si el hosting lo permite.
-4. Verificar la imagen de Open Graph (`<meta property="og:image" content="FOTOS/4.jpeg?v=1">`) para que WhatsApp/Facebook la muestren correctamente; algunas plataformas requieren una URL absoluta.
+4. Verificar la imagen de Open Graph (`<meta property="og:image" content="FOTOS/4.jpeg?v=3">`) para que WhatsApp/Facebook la muestren correctamente; algunas plataformas requieren una URL absoluta.
 
 ## Información del evento (resumen)
 
@@ -130,7 +130,7 @@ No hay comandos de build. Para probar o visualizar:
 - **Hora:** 10:00 AM (UTC-5)
 - **Ceremonia:** Iglesia (enlace a Google Maps en `index.html`)
 - **Recepción:** En casa
-- **Confirmaciones:** WhatsApp +593 98 966 4303 (hasta el jueves 18 de junio de 2026)
+- **Confirmaciones:** WhatsApp +593 98 966 4303 (hasta el jueves 18 de junio de 2026). Mensaje predefinido: "Te confirmo mi asistencia. Personas: _____".
 - **Compartir fotos:** Carpeta de Google Drive enlazada en la página
 
 ---
