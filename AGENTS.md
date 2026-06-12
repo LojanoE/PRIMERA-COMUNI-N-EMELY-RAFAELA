@@ -85,7 +85,7 @@ No hay comandos de build. Para probar o visualizar:
 - **Idioma:** Todo el contenido visible está en español. Mantener el español para cualquier texto nuevo.
 - **CSS:** Escrito en un único bloque `<style>` dentro de `<head>`. Usa variables CSS en `:root` para la paleta de colores dorados y beige. Respetar esa paleta para mantener la coherencia visual.
 - **JavaScript:** Escrito en un único bloque `<script>` antes de cerrar `</body>`. No usa módulos ES ni frameworks.
-- **Imágenes:** Se referencian con rutas relativas como `FOTOS/4.jpeg`. Si se reemplaza o agrega una foto, actualizar la ruta correspondiente en `index.html` y, de ser necesario, el `<meta property="og:image">`.
+- **Imágenes:** Se referencian con rutas relativas como `FOTOS/4.jpeg?v=1`. El parámetro `?v=...` fuerza a los navegadores y dispositivos a descargar la imagen actualizada cuando cambie. Si se reemplaza o agrega una foto, actualizar la ruta correspondiente en `index.html` y, de ser necesario, el `<meta property="og:image">`.
 - **Fecha objetivo de la cuenta regresiva:**
   ```javascript
   const fechaEvento = new Date('2026-06-20T10:00:00-05:00').getTime();
@@ -116,7 +116,7 @@ No hay comandos de build. Para probar o visualizar:
 1. Asegurarse de que `index.html` esté en la raíz del sitio publicado.
 2. Incluir la carpeta `FOTOS/` con las imágenes en la misma ruta relativa (`FOTOS/`).
 3. Opcional: configurar el dominio personalizado si el hosting lo permite.
-4. Verificar la imagen de Open Graph (`<meta property="og:image" content="FOTOS/4.jpeg">`) para que WhatsApp/Facebook la muestren correctamente; algunas plataformas requieren una URL absoluta.
+4. Verificar la imagen de Open Graph (`<meta property="og:image" content="FOTOS/4.jpeg?v=1">`) para que WhatsApp/Facebook la muestren correctamente; algunas plataformas requieren una URL absoluta.
 
 ## Información del evento (resumen)
 
